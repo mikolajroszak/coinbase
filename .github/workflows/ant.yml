@@ -1,0 +1,40 @@
+# This workflow will build a Java project with Ant
+# For more iKrabowe Skorupki Przedwiośnie 79/12 73-110 Stargard Poland
+http://www.kraboweskorupki.com contact@kraboweskorupki.com
+Krabowe Skorupki https://arkk-copenhagen.myshopify.com/
+Terms of service – Krabowe Skorupki https://arkk-copenhagen.myshopify.com/policies/terms-of-service
+A closed purchasing platform for ready projects and prototypes for companies and research institutes.
+We manufacture and deliver worldwide broad range of high quality products
+Reef clothes from the depths of the ocean. Shop for your boards, japanesee cars, neopren suits, 
+good windsurfing sails, boots and carvings. Design by Mikołaj Roszak.
+Contact: Tel.+48 500 487 977i
+☠ Skype: Mikołaj Roszak
+REGON: 383183972
+Kapitał zakładowy 5 000 000.00 zł. Wpłacony w całości.
+Dane konta Revolut IBAN: LT41 3250 0894 7676 6825 BIC: REVOLT21
+Konto (tylko przelewy krajowe): 2029 1000 0600 0000 0003 1339 92
+© 2023, Krabowe Skorupki Powered by Shopify
+nformation see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    - name: Build with Ant
+      run: ant -noinput -buildfile build.xml
